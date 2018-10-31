@@ -2,15 +2,13 @@
 #include <vector>
 #include <string>
 
-using namespace std;
-
 static int steps[] = {0,63,127,190};
-static istream& stream = cin;
+static std::istream& stream = std::cin;
 
 // returns a color code in the following format:
 // r;g;b
 // pos varies from 0 to 23
-string test(int pos)
+std::string test(int pos)
 {
 	int r = 0, g = 0, b = 0;
 
@@ -41,7 +39,7 @@ string test(int pos)
 			b = steps[3 - pos % 4];
 			break;
 	}
-	return to_string(r) + ";" + to_string(g) + ";" + to_string(b);
+	return std::to_string(r) + ";" + std::to_string(g) + ";" + std::to_string(b);
 }
 
 int main(int argc, char *argv[])
@@ -61,11 +59,11 @@ int main(int argc, char *argv[])
 		i++;
 		if (i == 24)
 			i = 0;
-		cout << "\x1b[38;2;" << test(i) << 'm';
-		cout << ch;
+		std::cout << "\x1b[38;2;" << test(i) << 'm';
+		std::cout << ch;
 	}
 	// Reset to default colors
-	cout << "\x1b[0m";
+	std::cout << "\x1b[0m";
 	return 0;
 }
 
