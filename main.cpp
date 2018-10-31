@@ -58,11 +58,16 @@ int main(int argc, char *argv[])
 			if (prevLineIndex == 23)
 				prevLineIndex = -1;
 		}
+<<<<<<< Updated upstream
 		i++;
 		if (i == 24)
 			i = 0;
 		cout << "\x1b[38;2;" << test(i) << 'm';
 		cout << ch;
+=======
+		++i %= 24;
+		std::cout << "\x1b[38;2;" << test(i) << 'm' << ch;
+>>>>>>> Stashed changes
 	}
 	// Reset to default colors
 	cout << "\x1b[0m";
